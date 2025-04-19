@@ -5,6 +5,7 @@ const contacts = [
     age: 36,
     email: "example.com",
     phone: "+62-1234-56789",
+    address: "Kota",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const contacts = [
     age: 31,
     email: "example.com",
     phone: "+62-1234-56789",
+    address: "Kota",
   },
   {
     id: 3,
@@ -19,23 +21,18 @@ const contacts = [
     age: 89,
     email: "example.com",
     phone: "+62-1234-56789",
+    address: "Kota",
   },
 ];
 
 for (let index = 0; index < contacts.length; index++) {
   const contact = contacts[index];
-  console.log(contact.name, contact.email);
 
-  console.log(`Name: ${contact.name}
-   Email : ${contact.email}
-   Phone : ${contact.phone}
-   `);
+  console.log(`
+  Name : ${contact.name}
+  Age : ${contact.age} year old
+  Email : ${contact.email}
+  Phone : ${contact.phone}
+  Address : ${contact.address}
+  `);
 }
-
-console.log(`
-   Name : $ {contact.name}
-   Age : $contact.age} year old
-   Email : ${contact.email}
-   address : ${contact.address}
-   Phone : ${contact.phone}
-   Country : ${contact.country}`);
