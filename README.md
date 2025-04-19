@@ -1,7 +1,11 @@
 # Address Book
+
 ## Aplication to Manage Contacts
+
 Link : <https://github.com/sesha22/address-book.git>
+
 ### Features
+
 -Contact List: Display a list of contacts with their names and essential details.
 -Contact Details: Clicking on a contact should open a page displaying detailed information, including phone numbers, email addresses, and any additional notes.
 -Add New Contact: Provide a form or interface to add new contacts with fields for name, phone number, email, address, and notes.
