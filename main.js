@@ -28,15 +28,19 @@ const contacts = [
   },
 ];
 
-for (let index = 0; index < contacts.length; index++) {
-  const contact = contacts[index];
+function displayContacts() {
+  for (let index = 0; index < contacts.length; index++) {
+    const contact = contacts[index];
 
-  console.log(`
-   Name : ${contact.name}
-   Age : ${contact.age} year old
-   Email : ${contact.email}
-   address : ${contact.address}
-   Phone : ${contact.phone}
-   Country : ${contact.country}
-   `);
+    console.log(`
+      Name : ${contact.name}
+      Age : ${contact.age} year old
+      Email : ${contact.email}
+      address : ${contact.address}
+      Phone : ${contact.phone}
+      Country : ${contact.country}
+      `);
+  }
 }
+
+displayContacts();
