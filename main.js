@@ -1,4 +1,4 @@
-const contacts = [
+let allContacts = [
   {
     id: 1,
     name: "Galuh Wasesa",
@@ -28,34 +28,32 @@ const contacts = [
   },
 ];
 
+// ----------------------------------------------------------------
+// Functions
+// ----------------------------------------------------------------
+
 function displayContacts() {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
+  for (let index = 0; index < allContacts.length; index++) {
+    const oneContact = allContacts[index];
 
     console.log(`
-    🤵 Name : ${contact.name}
-    🕯️ Age: ${contact.age} year old
-    📧 Email : ${contact.email}
-    📍 Address : ${contact.address}
-    ☎️Phone : ${contact.phone}
-    🚩Country : ${contact.country}
+    🤵 Name : ${oneContact.name}
+    🕯️ Age: ${oneContact.age} years old
+    📧 Email : ${oneContact.email}
+    📍 Address : ${oneContact.address}
+    ☎️ Phone : ${oneContact.phone}
+    🚩 Country : ${oneContact.country}
       `);
   }
 }
 
-function displayContacts() {
-  console.log(contacts);
-}
-
-displayContacts();
-
-function addContacts(name, age, email, phone, addres) {
-  const lastContacts = contacts[contacts.length - 1];
-  const lastId = lastContacts.id;
+function addContact(name, age, email, phone, address, country) {
+  const lastOneContact = allContacts[allContacts.length - 1];
+  const lastId = lastOneContact.id;
   const nextId = lastId + 1;
 
-  contacts.push({
-    Id: nextId,
+  allContacts.push({
+    id: nextId,
     name,
     age,
     email,
@@ -65,11 +63,17 @@ function addContacts(name, age, email, phone, addres) {
   });
 }
 
-addContacts(
-  "sesha",
+// ----------------------------------------------------------------
+// Main Program
+// ----------------------------------------------------------------
+
+addContact(
+  "Sesha",
   36,
   "surat.sesha@gmail.com",
-  "Blitar",
   "+6285646851825",
+  "Blitar",
   "Indonesia"
 );
+
+displayContacts();
