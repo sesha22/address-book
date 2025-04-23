@@ -33,14 +33,43 @@ function displayContacts() {
     const contact = contacts[index];
 
     console.log(`
-      Name : ${contact.name}
-      Age : ${contact.age} year old
-      Email : ${contact.email}
-      address : ${contact.address}
-      Phone : ${contact.phone}
-      Country : ${contact.country}
+    🤵 Name : ${contact.name}
+    🕯️ Age: ${contact.age} year old
+    📧 Email : ${contact.email}
+    📍 Address : ${contact.address}
+    ☎️Phone : ${contact.phone}
+    🚩Country : ${contact.country}
       `);
   }
 }
 
+function displayContacts() {
+  console.log(contacts);
+}
+
 displayContacts();
+
+function addContacts(name, age, email, phone, addres) {
+  const lastContacts = contacts[contacts.length - 1];
+  const lastId = lastContacts.id;
+  const nextId = lastId + 1;
+
+  contacts.push({
+    Id: nextId,
+    name,
+    age,
+    email,
+    phone,
+    address,
+    country,
+  });
+}
+
+addContacts(
+  "sesha",
+  36,
+  "surat.sesha@gmail.com",
+  "Blitar",
+  "+6285646851825",
+  "Indonesia"
+);

@@ -1,5 +1,9 @@
-function sayHello() {
-  console.log("Hello World");
-}
+// // function logMessage() {
+//   console.log(" Hello");
+// }
+// logMessage();
 
-sayHello();
+function sayHello(name) {
+  console.log(`Hello, ${name}!`);
+}
+sayHello("Sesha");
