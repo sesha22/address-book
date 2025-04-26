@@ -67,11 +67,10 @@ function addContact(name, age, email, phone, address, country) {
 // Main Program
 // --------------------------------------------------------
 
-// name, age, email, phone, address, country
 addContact(
-  "Sesha", // name
-  36, // age
-  "surat.sesha@gmail.com", // email
+  "Sesha",
+  36,
+  "surat.sesha@gmail.com",
   "+6285646851825",
   "Blitar",
   "Indonesia"
