@@ -3,7 +3,7 @@ let allContacts = [
     id: 1,
     name: "Galuh Wasesa",
     age: 36,
-    email: "example.com",
+    email: "sesa@example.com",
     phone: "+62-1234-56789",
     address: "Blitar",
     country: "Indonesia",
@@ -12,7 +12,7 @@ let allContacts = [
     id: 2,
     name: "Gading Muraya",
     age: 31,
-    email: "example.com",
+    email: "gading@example.com",
     phone: "+62-1234-56789",
     address: "Madiun",
     country: "Indonesia",
@@ -21,7 +21,7 @@ let allContacts = [
     id: 3,
     name: "Bacharudin Jusuf Habibie",
     age: 89,
-    email: "example.com",
+    email: "habibie@example.com",
     phone: "+62-1234-56789",
     address: "Pare-pare",
     country: "Jerman",
@@ -38,16 +38,16 @@ function displayContacts() {
 
     console.log(`
     🤵 Name : ${contact.name}
-    🕯️ Age: ${contact.age} year old
+    🕯️ Age: ${contact.age} years old
     📧 Email : ${contact.email}
+    ☎️ Phone : ${contact.phone}
     📍 Address : ${contact.address}
-    ☎️Phone : ${contact.phone}
-    🚩Country : ${contact.country}
+    🚩 Country : ${contact.country}
       `);
   }
 }
 
-function addContacts(name, age, email, phone, address, country) {
+function addContact(name, age, email, phone, address, country) {
   const lastOneContacts = allContacts[allContacts.length - 1];
   const lastId = lastOneContacts.id;
   const nextId = lastId + 1;
@@ -67,12 +67,13 @@ function addContacts(name, age, email, phone, address, country) {
 // Main Program
 // --------------------------------------------------------
 
-addContacts(
-  "sesha",
-  36,
-  "surat.sesha@gmail.com",
-  "Blitar",
+// name, age, email, phone, address, country
+addContact(
+  "Sesha", // name
+  36, // age
+  "surat.sesha@gmail.com", // email
   "+6285646851825",
+  "Blitar",
   "Indonesia"
 );
 
