@@ -1,4 +1,4 @@
-const contacts = [
+let allContacts = [
   {
     id: 1,
     name: "Galuh Wasesa",
@@ -28,9 +28,13 @@ const contacts = [
   },
 ];
 
+// ------------------------------------
+// Functions
+// ------------------------------------
+
 function displayContacts() {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
+  for (let index = 0; index < allContacts.length; index++) {
+    const contact = allContacts[index];
 
     console.log(`
     🤵 Name : ${contact.name}
@@ -43,19 +47,13 @@ function displayContacts() {
   }
 }
 
-function displayContacts() {
-  console.log(contacts);
-}
-
-displayContacts();
-
-function addContacts(name, age, email, phone, addres) {
-  const lastContacts = contacts[contacts.length - 1];
-  const lastId = lastContacts.id;
+function addContacts(name, age, email, phone, address, country) {
+  const lastOneContacts = allContacts[allContacts.length - 1];
+  const lastId = lastOneContacts.id;
   const nextId = lastId + 1;
 
-  contacts.push({
-    Id: nextId,
+  allContacts.push({
+    id: nextId,
     name,
     age,
     email,
@@ -65,6 +63,10 @@ function addContacts(name, age, email, phone, addres) {
   });
 }
 
+// --------------------------------------------------------
+// Main Program
+// --------------------------------------------------------
+
 addContacts(
   "sesha",
   36,
@@ -73,3 +75,5 @@ addContacts(
   "+6285646851825",
   "Indonesia"
 );
+
+displayContacts();
