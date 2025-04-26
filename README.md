@@ -1,6 +1,6 @@
 # Address Book
 
-## Aplication to Manage Contacts
+Aplication to Manage Contacts.
 
 Link : <https://github.com/sesha22/address-book.git>
 
