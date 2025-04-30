@@ -46,8 +46,8 @@ function displayContacts() {
 }
 
 function addContact(name, age, email, phone, address, country) {
-  const lastOneContacts = allContacts[allContacts.length - 1];
-  const lastId = lastOneContacts.id;
+  const lastOneContact = allContacts[allContacts.length - 1];
+  const lastId = lastOneContact.id;
   const nextId = lastId + 1;
 
   allContacts.push({
@@ -62,11 +62,11 @@ function addContact(name, age, email, phone, address, country) {
 }
 
 // --------------------------------------------------------
-// Main Program
+// Main Program 
 // --------------------------------------------------------
 
 function searchContacts(keyword) {
-  const foundContacts = allContacts.filter((Contact) => {
+  const foundContacts = allContacts.filter((contact) => {
     if (oneContact.name.toLowerCase().include(keyword.toLowerCase())) {
       return oneContact;
     }
@@ -77,7 +77,7 @@ function deleteContact(id) {
   const updateContact = allContacts.filter((contact) => contact.id !== id);
   allContacts = updatedContacts;
 }
-function updateContact(id, newContact) {
+function updateContact(id, newContactData) {
   const updateContact = allContacts.map((contact) => {
     if (contact.id === id) {
       return {
@@ -102,7 +102,7 @@ function renderContact ( ) {
       <p>${oneContact.email}</p>
       <p>${oneContact.phone}</p>
       <p>${oneContact.address}</p>
-      </li>';
+      </li>`;
     })
       .join("")
     }
@@ -127,7 +127,7 @@ function renderContact ( ) {
 
     }
 
-// addContacts(
+// addContact(
 //   "Sesha",
 //   36,
 //   "surat.sesha@gmail.com",
