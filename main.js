@@ -3,7 +3,7 @@ let allContacts = [
     id: 1,
     name: "Galuh Wasesa",
     age: 36,
-    email: "example.com",
+    email: "sesha@example.com",
     phone: "+62-1234-56789",
     address: "Blitar",
     country: "Indonesia",
@@ -12,7 +12,7 @@ let allContacts = [
     id: 2,
     name: "Gading Muraya",
     age: 31,
-    email: "example.com",
+    email: "gading@example.com",
     phone: "+62-1234-56789",
     address: "Madiun",
     country: "Indonesia",
@@ -21,7 +21,7 @@ let allContacts = [
     id: 3,
     name: "Bacharudin Jusuf Habibie",
     age: 89,
-    email: "example.com",
+    email: "habibie@example.com",
     phone: "+62-1234-56789",
     address: "Pare-pare",
     country: "Jerman",
@@ -33,21 +33,19 @@ let allContacts = [
 // ------------------------------------
 
 function displayContacts() {
-  for (let index = 0; index < allContacts.length; index++) {
-    const contact = allContacts[index];
-
+  allContacts.forEach((contact) => {
     console.log(`
-    🤵 Name : ${contact.name}
-    🕯️ Age: ${contact.age} year old
-    📧 Email : ${contact.email}
-    📍 Address : ${contact.address}
-    ☎️Phone : ${contact.phone}
-    🚩Country : ${contact.country}
+    🤵  Name   :  ${contact.name}
+    🕯️  Agee   :  ${contact.age} years old
+    📧 Email   : ${contact.email}
+    ☎️ Phone   :  ${contact.phone}
+    📍  Address : ${contact.address}
+    🚩 Country : ${contact.country}
       `);
-  }
+  });
 }
 
-function addContacts(name, age, email, phone, address, country) {
+function addContact(name, age, email, phone, address, country) {
   const lastOneContacts = allContacts[allContacts.length - 1];
   const lastId = lastOneContacts.id;
   const nextId = lastId + 1;
@@ -67,13 +65,75 @@ function addContacts(name, age, email, phone, address, country) {
 // Main Program
 // --------------------------------------------------------
 
-addContacts(
-  "sesha",
-  36,
-  "surat.sesha@gmail.com",
-  "Blitar",
-  "+6285646851825",
-  "Indonesia"
-);
+function searchContacts(keyword) {
+  const foundContacts = allContacts.filter((Contact) => {
+    if (oneContact.name.toLowerCase().include(keyword.toLowerCase())) {
+      return oneContact;
+    }
+  });
+  return foundContacts;
+}
+function deleteContact(id) {
+  const updateContact = allContacts.filter((contact) => contact.id !== id);
+  allContacts = updatedContacts;
+}
+function updateContact(id, newContact) {
+  const updateContact = allContacts.map((contact) => {
+    if (contact.id === id) {
+      return {
+        ...contact,
+        ...newContact,
+      };
+    } else {
+      return contact;
+    }
+  });
+  allContacts = updateAllContact;
+}
 
-displayContacts();
+function renderContact ( ) {
+  const allContactsListElement = document.getElementById("all-contcts");
+
+  allContactsListElement.innerHTML =allContacts
+    .map((oneContact) => {
+      retun `<li>
+      <h2>${oneContact.name}</h2>
+      <p>${oneContact.age} years old</p>
+      <p>${oneContact.email}</p>
+      <p>${oneContact.phone}</p>
+      <p>${oneContact.address}</p>
+      </li>';
+    })
+      .join("")
+    }
+
+    const contactFormElement = document.getElementById("contact-form");
+      event.preventDefaul();
+
+      const formData = new FormData(contacFormElement);
+
+      const newContactFormData = {
+        name : String(formData.get("name")),
+        age : Number(formData.get("age")),
+        email :String(formData.get("email")),
+        phone : String(formData.get("phone")),
+        address :String(formData.get("address")),
+        
+      }
+
+
+
+
+
+    }
+
+// addContacts(
+//   "Sesha",
+//   36,
+//   "surat.sesha@gmail.com",
+//   "+6285646851825",
+//   "Blitar",
+//   "Indonesia"
+// );
+
+// displayContacts();
