@@ -35,68 +35,63 @@ let allContacts = [
 function displayContacts() {
   allContacts.forEach((contact) => {
     console.log(`
-    🤵  Name   :  ${contact.name}
-    🕯️  Agee   :  ${contact.age} years old
-    📧 Email   : ${contact.email}
-    ☎️ Phone   :  ${contact.phone}
-    📍  Address : ${contact.address}
-    🚩 Country : ${contact.country}
+    🤵 Name: ${contact.name}
+    🕯️ Age: ${contact.age} years old
+    📧 Email: ${contact.email}
+    ☎️ Phone: ${contact.phone}
+    📍 Address: ${contact.address}
+    🚩 Country: ${contact.country}
       `);
   });
 }
 
-function addContact(name, age, email, phone, address, country) {
+function addContact(newContactData) {
   const lastOneContact = allContacts[allContacts.length - 1];
   const lastId = lastOneContact.id;
   const nextId = lastId + 1;
 
   allContacts.push({
     id: nextId,
-    name,
-    age,
-    email,
-    phone,
-    address,
-    country,
+    ...newContactData,
   });
 }
 
-// --------------------------------------------------------
-// Main Program 
-// --------------------------------------------------------
-
 function searchContacts(keyword) {
-  const foundContacts = allContacts.filter((contact) => {
+  const foundContacts = allContacts.filter((oneContact) => {
     if (oneContact.name.toLowerCase().include(keyword.toLowerCase())) {
       return oneContact;
     }
   });
   return foundContacts;
 }
+
 function deleteContact(id) {
-  const updateContact = allContacts.filter((contact) => contact.id !== id);
+  const updatedContacts = allContacts.filter((contact) => contact.id !== id);
+
   allContacts = updatedContacts;
 }
+
 function updateContact(id, newContactData) {
-  const updateContact = allContacts.map((contact) => {
+  const updatedContacts = allContacts.map((contact) => {
     if (contact.id === id) {
       return {
         ...contact,
-        ...newContact,
+        ...newContactData,
       };
     } else {
       return contact;
     }
   });
-  allContacts = updateAllContact;
+
+  allContacts = updatedContacts;
 }
 
-function renderContact ( ) {
-  const allContactsListElement = document.getElementById("all-contcts");
+function renderContacts() {
+  const allContactsListElement = document.getElementById("all-contacts");
 
-  allContactsListElement.innerHTML =allContacts
+  allContactsListElement.innerHTML = allContacts
     .map((oneContact) => {
-      retun `<li>
+      return `<li>
       <h2>${oneContact.name}</h2>
       <p>${oneContact.age} years old</p>
       <p>${oneContact.email}</p>
@@ -104,36 +99,31 @@ function renderContact ( ) {
       <p>${oneContact.address}</p>
       </li>`;
     })
-      .join("")
-    }
+    .join("");
+}
 
-    const contactFormElement = document.getElementById("contact-form");
-      event.preventDefaul();
+const contactFormElement = document.getElementById("contact-form");
 
-      const formData = new FormData(contacFormElement);
+contactFormElement.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-      const newContactFormData = {
-        name : String(formData.get("name")),
-        age : Number(formData.get("age")),
-        email :String(formData.get("email")),
-        phone : String(formData.get("phone")),
-        address :String(formData.get("address")),
-        
-      }
+  const formData = new FormData(contactFormElement);
 
+  const newContactFormData = {
+    name: String(formData.get("name")),
+    age: Number(formData.get("age")),
+    email: String(formData.get("email")),
+    phone: String(formData.get("phone")),
+    address: String(formData.get("address")),
+  };
 
+  addContact(newContactFormData);
 
+  renderContacts();
+});
 
+// -----------------------
+// PROGRAM
+// -----------------------
 
-    }
-
-// addContact(
-//   "Sesha",
-//   36,
-//   "surat.sesha@gmail.com",
-//   "+6285646851825",
-//   "Blitar",
-//   "Indonesia"
-// );
-
-// displayContacts();
+renderContacts();
