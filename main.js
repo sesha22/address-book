@@ -35,38 +35,30 @@ let allContacts = [
 function displayContacts() {
   allContacts.forEach((contact) => {
     console.log(`
-    🤵  Name   :  ${contact.name}
-    🕯️  Agee   :  ${contact.age} years old
-    📧 Email   : ${contact.email}
-    ☎️ Phone   :  ${contact.phone}
-    📍  Address : ${contact.address}
-    🚩 Country : ${contact.country}
+    🤵  Name: ${contact.name}
+    🕯️  Agee: ${contact.age} years old
+    📧 Email: ${contact.email}
+    ☎️ Phone: ${contact.phone}
+    📍  Address: ${contact.address}
+    🚩 Country: ${contact.country}
       `);
   });
 }
 
-function addContact(name, age, email, phone, address, country) {
+function addContact(newContactData) {
   const lastOneContact = allContacts[allContacts.length - 1];
   const lastId = lastOneContact.id;
   const nextId = lastId + 1;
 
   allContacts.push({
     id: nextId,
-    name,
-    age,
-    email,
-    phone,
-    address,
-    country,
+    ...newContactData
   });
 }
 
-// --------------------------------------------------------
-// Main Program 
-// --------------------------------------------------------
 
 function searchContacts(keyword) {
-  const foundContacts = allContacts.filter((contact) => {
+  const foundContacts = allContacts.filter((oneContact) => {
     if (oneContact.name.toLowerCase().include(keyword.toLowerCase())) {
       return oneContact;
     }
@@ -74,15 +66,15 @@ function searchContacts(keyword) {
   return foundContacts;
 }
 function deleteContact(id) {
-  const updateContact = allContacts.filter((contact) => contact.id !== id);
+  const updatedContacts = allContacts.filter((contact) => contact.id !== id);
   allContacts = updatedContacts;
 }
 function updateContact(id, newContactData) {
-  const updateContact = allContacts.map((contact) => {
+  const updatedContacts = allContacts.map((contact) => {
     if (contact.id === id) {
       return {
         ...contact,
-        ...newContact,
+        ...newContactData,
       };
     } else {
       return contact;
@@ -120,12 +112,7 @@ function renderContact ( ) {
         address :String(formData.get("address")),
         
       }
-
-
-
-
-
-    }
+}
 
 // addContact(
 //   "Sesha",
