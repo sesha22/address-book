@@ -16,19 +16,23 @@
       <form method="post" id="contact-form">
         <div>
           <label for="name"> Full name:</label>
-          <input type="text" id="name" name="name " />
+          <input type="text" id="name" name="name" />
         </div>
         <div>
           <label for="age">Age:</label>
-          <input type="number" id="age" name="name" />
+          <input type="number" id="age" name="age" />
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="tel" id="phone" />
+          <input type="email" id="email" name="email" />
+        </div>
+        <div>
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" />
         </div>
         <div>
           <label for="address">Address:</label>
-          <textarea name="address" id="address"></textarea>
+          <textarea name="address" id="address" name="address"></textarea>
         </div>
         <div>
           <label for="country">Country:</label>
@@ -37,6 +41,7 @@
 
         <button type="submit">Add Contact</button>
       </form>
+
       <ul id="all-contacts">
         <!-- render contacts here-->
       </ul>
