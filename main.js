@@ -52,10 +52,9 @@ function addContact(newContactData) {
 
   allContacts.push({
     id: nextId,
-    ...newContactData
+    ...newContactData,
   });
 }
-
 
 function searchContacts(keyword) {
   const foundContacts = allContacts.filter((oneContact) => {
@@ -80,15 +79,14 @@ function updateContact(id, newContactData) {
       return contact;
     }
   });
-  allContacts = updateAllContact;
+  allContacts = updatedContacts;
 }
 
-function renderContact ( ) {
-  const allContactsListElement = document.getElementById("all-contcts");
-
-  allContactsListElement.innerHTML =allContacts
+function renderContact() {
+  const allContactsListElement = document.getElementById("all-contacts");
+  allContactsListElement.innerHTML = allContacts
     .map((oneContact) => {
-      retun `<li>
+      return `li>
       <h2>${oneContact.name}</h2>
       <p>${oneContact.age} years old</p>
       <p>${oneContact.email}</p>
@@ -96,31 +94,29 @@ function renderContact ( ) {
       <p>${oneContact.address}</p>
       </li>`;
     })
-      .join("")
-    }
-
-    const contactFormElement = document.getElementById("contact-form");
-      event.preventDefaul();
-
-      const formData = new FormData(contacFormElement);
-
-      const newContactFormData = {
-        name : String(formData.get("name")),
-        age : Number(formData.get("age")),
-        email :String(formData.get("email")),
-        phone : String(formData.get("phone")),
-        address :String(formData.get("address")),
-        
-      }
+    .join("");
 }
 
-// addContact(
-//   "Sesha",
-//   36,
-//   "surat.sesha@gmail.com",
-//   "+6285646851825",
-//   "Blitar",
-//   "Indonesia"
-// );
+const contactFormElement = document.getElementById("contact-form");
+contactFormElement.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(contactFormElement);
 
-// displayContacts();
+  const newContacFormData = {
+    name: String(formData.get("name")),
+    age: Number(formData.get("age")),
+    email: String(formData.get("email")),
+    phone: String(formData.get("phone")),
+    address: String(formData.get("address")),
+  };
+
+  addContact(newContacFormData);
+
+  renderContact();
+});
+
+// --------------
+// PROGRAM
+// -------------
+
+renderContact();
