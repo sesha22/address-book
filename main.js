@@ -58,16 +58,18 @@ function addContact(newContactData) {
 
 function searchContacts(keyword) {
   const foundContacts = allContacts.filter((oneContact) => {
-    if (oneContact.name.toLowerCase().include(keyword.toLowerCase())) {
+    if (oneContact.name.toLowerCase().includes(keyword.toLowerCase())) {
       return oneContact;
     }
   });
   return foundContacts;
 }
+
 function deleteContact(id) {
   const updatedContacts = allContacts.filter((contact) => contact.id !== id);
   allContacts = updatedContacts;
 }
+
 function updateContact(id, newContactData) {
   const updatedContacts = allContacts.map((contact) => {
     if (contact.id === id) {
@@ -82,41 +84,45 @@ function updateContact(id, newContactData) {
   allContacts = updatedContacts;
 }
 
-function renderContact() {
+function renderContacts() {
   const allContactsListElement = document.getElementById("all-contacts");
+
   allContactsListElement.innerHTML = allContacts
     .map((oneContact) => {
-      return `li>
+      return `<li>
       <h2>${oneContact.name}</h2>
       <p>${oneContact.age} years old</p>
       <p>${oneContact.email}</p>
       <p>${oneContact.phone}</p>
       <p>${oneContact.address}</p>
+      <p>${oneContact.country}</p>
       </li>`;
     })
     .join("");
 }
 
 const contactFormElement = document.getElementById("contact-form");
+
 contactFormElement.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(contactFormElement);
 
-  const newContacFormData = {
+  const newContactFormData = {
     name: String(formData.get("name")),
     age: Number(formData.get("age")),
     email: String(formData.get("email")),
     phone: String(formData.get("phone")),
     address: String(formData.get("address")),
+    country: String(formData.get("country")),
   };
 
-  addContact(newContacFormData);
+  addContact(newContactFormData);
 
-  renderContact();
+  renderContacts();
 });
 
 // --------------
 // PROGRAM
 // -------------
 
-renderContact();
+renderContacts();
